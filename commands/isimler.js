@@ -6,7 +6,7 @@ module.exports = {
 
     run: async(client, message, args) => {
         if (!client.config.mods.some(id => message.member.roles.cache.has(id))) {
-            return msg.react('⚠️')
+            return message.react('⚠️')
         }
         let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if (!member) return message.channel.send("Öncellikle Bir Kullanıcı Belirtmelisin.")
