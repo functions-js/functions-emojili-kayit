@@ -28,25 +28,26 @@ client.on('message', message => {
 
 client.on('ready', () => {
     client.user.setPresence({ activity: { name: 'Niwren X İngiltereli X Muratva Stark' }, status: 'idle' })
-    client.channels.cache.get("").join() // ses kanalı id
+    client.channels.cache.get(client.config.voiceChannel).join() // ses kanalı id
     console.log(`Bot ${client.user.tag} Adı İle Giriş Yaptı!`);
 })
-
 client.config = {
-    token: '',
-    vipRoles: [''],
-    boosterRoles: '',
-    ekipRoles: [''],
-    unregisteres: ['', ''],
-    maleRoles: ['', '', ''],
-    girlRoles: ['', '', ''],
-    mods: ['', ''],
-    chat: '',
-    channelID: '',
-    tag: '',
-    guildID: '',
-    taglog: '',
+    token: '',//token
+    voiceChannel: '',//ses kanalı
+    vipRoles: [''],//vip rolleri
+    boosterRoles: '',//boosterrolü
+    ekipRoles: [''],//taglı rolü
+    unregisteres: ['', ''],//kayıtsız rolü
+    maleRoles: ['', '', ''],//erkek rolleri
+    girlRoles: ['', '', ''],//kız rolleri
+    mods: [''],//mod rolleri
+    chat: '',//chat idsi
+    channelID: '',//kayıt kanalı id
+    tag: '',//tag
+    guildID: '',//sunucu id
+    taglog: '',//tag lod id
 }
+
 
 client.on("userUpdate", async function(oldUser, newUser) {
     const guild = client.guilds.cache.get(client.config.guildID)
